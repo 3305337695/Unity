@@ -5,14 +5,12 @@
 [Bb]uild/
 [Bb]uilds/
 [Ll]ogs/
-[Uu]ser[Ss]ettings/
 
 # IDE 相关
 .vs/
 .vscode/
 *.csproj
 *.sln
-.vsconfig
 
 # 其他
 *.user
