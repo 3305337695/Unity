@@ -29,6 +29,20 @@ public class Character : MonoBehaviour
         Display();
     }
 
+    public void Heal(float value)
+    {
+        if (currentHealth + value <= maxHealth)
+        {
+            currentHealth += value;
+        }
+        else
+        {
+            currentHealth = maxHealth;
+        }
+
+        Display();
+    }
+
     public void TakeDamage(Attack attack)
     {
         if(!invulnerable)

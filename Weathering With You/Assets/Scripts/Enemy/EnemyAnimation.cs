@@ -35,4 +35,9 @@ public class EnemyAnimation : MonoBehaviour
     {
         anim.SetTrigger("hurt");
     }
+
+    public void PlaySkill()
+    {
+        anim.SetTrigger("skill");
+    }
 }

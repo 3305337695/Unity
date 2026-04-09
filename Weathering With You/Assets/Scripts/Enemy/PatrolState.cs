@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class PatrolState : State<EnemyController>
 {
+    public bool isReverse;
+
     [Header("基本属性")]
     public float runSpeed;
 
     [Header("计时")]
     public Vector2 timeInterval;
 
+    private float reverse;
     private PatrolStates currentState;
     private float timer;
     private float faceDir;
@@ -19,6 +22,8 @@ public class PatrolState : State<EnemyController>
     public override void Enter(EnemyController owner)
     {
         this.owner = owner;
+
+        reverse = isReverse ? -1f : 1f;
 
         timer = 0f;
     }
@@ -47,10 +52,10 @@ public class PatrolState : State<EnemyController>
                 faceDir = Random.Range(0, 500) > 0 ? faceDir : -faceDir;
                 transform.localScale = new Vector3(faceDir, 1, 1);
 
-                moveDir = faceDir;
+                moveDir = reverse * faceDir;
                 owner.rb.velocity = new Vector2(moveDir * runSpeed, owner.rb.velocity.y);
 
-                if ((faceDir == 1f && owner.physicsCheck.isRightWall) || (faceDir == -1f && owner.physicsCheck.isLeftWall))
+                if ((faceDir == reverse * 1f && owner.physicsCheck.isRightWall) || (faceDir == reverse * -1f && owner.physicsCheck.isLeftWall))
                 {
                     faceDir = -faceDir;
                     transform.localScale = new Vector3(faceDir, 1, 1);
