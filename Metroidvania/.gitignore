@@ -1,0 +1,17 @@
+# Unity 自动生成文件夹
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+
+# IDE 相关
+.vs/
+.vscode/
+*.csproj
+*.sln
+
+# 其他
+*.user
+*.userprefs
