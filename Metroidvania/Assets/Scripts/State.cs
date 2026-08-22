@@ -6,18 +6,24 @@ public abstract class State
 {
     protected PlayerController player;
     protected StateMachine stateMachine;
-    protected string stateName;
+    protected string animBoolName;
 
-    public State(PlayerController player, StateMachine stateMachine, string stateName)
+    protected Animator anim;
+    protected Rigidbody2D rb;
+
+    public State(PlayerController player, StateMachine stateMachine, string animBoolName)
     {
         this.player = player;
         this.stateMachine = stateMachine;
-        this.stateName = stateName;
+        this.animBoolName = animBoolName;
+
+        anim = player.anim;
+        rb = player.rb;
     }
 
     public virtual void Enter()
     {
-        
+        anim.SetBool(animBoolName, true);
     }
 
     public virtual void Update()
@@ -27,6 +33,6 @@ public abstract class State
 
     public virtual void Exit()
     {
-
+        anim.SetBool(animBoolName, false);
     }
 }

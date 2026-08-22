@@ -8,5 +8,23 @@ public class PlayerIdleState : State
     {
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+    }
 
+    public override void Update()
+    {
+        base.Update();
+
+        if (player.moveInput.x != 0)
+        {
+            stateMachine.ChangeState(player.moveState);
+        }
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+    }
 }
