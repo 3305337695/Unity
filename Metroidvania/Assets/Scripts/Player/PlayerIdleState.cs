@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerIdleState : State
+public class PlayerIdleState : PlayerGroundState
 {
     public PlayerIdleState(PlayerController player, StateMachine stateMachine, string stateName) : base(player, stateMachine, stateName)
     {
@@ -11,6 +11,8 @@ public class PlayerIdleState : State
     public override void Enter()
     {
         base.Enter();
+
+        player.SetVelocity(0, rb.velocity.y);
     }
 
     public override void Update()

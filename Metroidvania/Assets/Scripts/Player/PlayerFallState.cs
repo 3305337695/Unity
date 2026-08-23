@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMoveState : State
+public class PlayerFallState : PlayerAiredState
 {
-    public PlayerMoveState(PlayerController player, StateMachine stateMachine, string stateName) : base(player, stateMachine, stateName)
+    public PlayerFallState(PlayerController player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
     }
 
@@ -17,12 +17,10 @@ public class PlayerMoveState : State
     {
         base.Update();
 
-        if (player.moveInput.x == 0)
+        if (player.groundDetected)
         {
             stateMachine.ChangeState(player.idleState);
         }
-
-        player.SetVelocity(player.moveInput.x * player.moveSpeed, rb.velocity.y);
     }
 
     public override void Exit()

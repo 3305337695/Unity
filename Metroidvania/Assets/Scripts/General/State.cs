@@ -10,6 +10,7 @@ public abstract class State
 
     protected Animator anim;
     protected Rigidbody2D rb;
+    protected PlayerInputControl inputControl;
 
     public State(PlayerController player, StateMachine stateMachine, string animBoolName)
     {
@@ -19,6 +20,7 @@ public abstract class State
 
         anim = player.anim;
         rb = player.rb;
+        inputControl = player.inputControl;
     }
 
     public virtual void Enter()
@@ -28,7 +30,7 @@ public abstract class State
 
     public virtual void Update()
     {
-        
+        anim.SetFloat("yVelocity", rb.velocity.y);
     }
 
     public virtual void Exit()
