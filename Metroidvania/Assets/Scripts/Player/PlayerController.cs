@@ -15,18 +15,23 @@ public class PlayerController : MonoBehaviour
     public PlayerJumpState jumpState { get; private set; }
     public PlayerFallState fallState { get; private set; }
     public PlayerWallSlideState wallSlideState { get; private set; }
+    public PlayerWallJumpState wallJumpState { get; private set; }
+    public PlayerDashState dashState { get; private set; }
 
 
     [Header("Movement Details")]
     public float moveSpeed;
     public float jumpForce;
+    public Vector2 wallJumpForce;
+    public float dashSpeed;
+    public float dashDuration;
     
     [Range(0,1)]
     public float inAirMoveMultiplier;
     [Range(0,1)]
     public float wallSlideSlowMultiplier;
     public Vector2 moveInput { get; private set; }
-    private float facingDir = 1;
+    public int facingDir { get; private set; } = 1;
 
 
     [Header("Collision Detection")]
@@ -35,6 +40,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask ground;
     public bool groundDetected { get; private set; }
     public bool wallDetected { get; private set; }
+
 
     private void Awake()
     {
@@ -49,6 +55,8 @@ public class PlayerController : MonoBehaviour
         jumpState = new PlayerJumpState(this, stateMachine, "jumpFall");
         fallState = new PlayerFallState(this, stateMachine, "jumpFall");
         wallSlideState = new PlayerWallSlideState(this, stateMachine, "wallSlide");
+        wallJumpState = new PlayerWallJumpState(this, stateMachine, "jumpFall");
+        dashState = new PlayerDashState(this, stateMachine, "dash");
     }
 
     private void OnEnable()

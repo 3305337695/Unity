@@ -19,6 +19,11 @@ public class PlayerWallSlideState : State
 
         HandleWallSlide();
 
+        if (inputControl.Player.Jump.WasPressedThisFrame())
+        {
+            stateMachine.ChangeState(player.wallJumpState);
+        }
+
         if (!player.wallDetected)
         {
             stateMachine.ChangeState(player.fallState);

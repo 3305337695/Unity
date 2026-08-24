@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 496
     width: 967
     height: 443
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 123
+  controlID: 120
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -249,8 +249,8 @@ MonoBehaviour:
     y: 0
     width: 481
     height: 939
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -562,7 +562,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 29104
+  m_LastSelectedObjectID: 29034
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -670,14 +670,14 @@ MonoBehaviour:
     - {fileID: -9119840316828588594, guid: 2392625686c6f7c479acc0725e6e99d9, type: 2}
     - {fileID: 6557725920547294195, guid: 2392625686c6f7c479acc0725e6e99d9, type: 2}
     m_ValueSerializationHelper:
-    - e00: 1.0137591
+    - e00: 0.9686532
       e01: 0
       e02: 0
-      e03: -83.375885
+      e03: -12.7864685
       e10: 0
-      e11: 1.0137591
+      e11: 0.9686532
       e12: 0
-      e13: -5.3695755
+      e13: -6.907196
       e20: 0
       e21: 0
       e22: 1
@@ -810,7 +810,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts/Player
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -818,16 +818,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Assets/Scripts/Player
   m_LastFoldersGridSize: 16
   m_LastProjectPath: E:\Unity\Projects\Metroidvania
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 42720000
-    m_LastClickedID: 29250
-    m_ExpandedIDs: 00000000427200004472000046720000487200004a720000cc730000
+    m_SelectedIDs: f6730000
+    m_LastClickedID: 29686
+    m_ExpandedIDs: 0000000060720000627200006472000066720000687200006a720000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -855,7 +855,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000427200004472000046720000487200004a720000
+    m_ExpandedIDs: 0000000060720000627200006472000066720000687200006a720000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -882,19 +882,19 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
-    m_ExpandedInstanceIDs: c6230000125f00000e5f000098700000d4750000047d0000de75000092830000748400006c9b000092b3ffff4ca20000b0a1000000000000867e00000276000096770000507a0000908f000086730000bc710000d0710000
+    m_HadKeyboardFocusLastEvent: 1
+    m_ExpandedInstanceIDs: c6230000125f00000e5f000098700000d4750000047d0000de75000092830000748400006c9b000092b3ffff4ca20000b0a1000000000000867e00000276000096770000507a0000908f000086730000bc710000d0710000e4710000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: PlayerWallSlideState
-      m_OriginalName: PlayerWallSlideState
+      m_Name: PlayerDashState
+      m_OriginalName: PlayerDashState
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 30406
+      m_UserData: 30140
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -1405,9 +1405,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3.2483716, y: 1.1470866, z: 0.053568464}
+    m_Target: {x: 2.1848197, y: 2.1739469, z: 0.042143777}
     speed: 2
-    m_Value: {x: 3.2483716, y: 1.1470866, z: 0.053568464}
+    m_Value: {x: 2.1848197, y: 2.1739469, z: 0.042143777}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1457,9 +1457,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 4.6407533
+    m_Target: 5.783222
     speed: 2
-    m_Value: 4.6407533
+    m_Value: 5.783222
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1523,7 +1523,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 24f2ffffe0faffffb8710000
+      m_ExpandedIDs: 16fbffffbe710000d8710000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
