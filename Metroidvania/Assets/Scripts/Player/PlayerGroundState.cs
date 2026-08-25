@@ -18,14 +18,13 @@ public class PlayerGroundState : State
         base.Update();
 
         if (rb.velocity.y < 0 && !player.groundDetected)
-        {
             stateMachine.ChangeState(player.fallState);
-        }
 
         if (inputControl.Player.Jump.WasPressedThisFrame())
-        {
             stateMachine.ChangeState(player.jumpState);
-        }
+
+        if (inputControl.Player.Attack.WasPressedThisFrame())
+            stateMachine.ChangeState(player.basicAttackState);
     }
 
     public override void Exit()

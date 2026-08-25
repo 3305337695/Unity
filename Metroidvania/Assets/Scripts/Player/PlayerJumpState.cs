@@ -20,9 +20,7 @@ public class PlayerJumpState : PlayerAiredState
         base.Update();
 
         if (rb.velocity.y < 0)
-        {
             stateMachine.ChangeState(player.fallState);
-        }
     }
 
     public override void Exit()

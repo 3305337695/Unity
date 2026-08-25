@@ -29,18 +29,14 @@ public class PlayerDashState : State
 
         player.SetVelocity(player.dashSpeed * dashDir, 0);
 
-        CancelDashIfNeed();
+        CancelDashIfNeeded();
 
         if (stateTimer < 0)
         {
             if (player.groundDetected)
-            {
                 stateMachine.ChangeState(player.idleState);
-            }
             else
-            {
                 stateMachine.ChangeState(player.fallState);
-            }
         }
     }
 
@@ -52,18 +48,14 @@ public class PlayerDashState : State
         rb.gravityScale = originalGravityScale;
     }
 
-    private void CancelDashIfNeed()
+    private void CancelDashIfNeeded()
     {
         if(player.wallDetected)
         {
             if (player.groundDetected)
-            {
                 stateMachine.ChangeState(player.idleState);
-            }
             else
-            {
                 stateMachine.ChangeState(player.wallSlideState);
-            }
         }
     }
 }

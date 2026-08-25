@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public PlayerWallSlideState wallSlideState { get; private set; }
     public PlayerWallJumpState wallJumpState { get; private set; }
     public PlayerDashState dashState { get; private set; }
+    public PlayerBasicAttackState basicAttackState { get; private set; }
 
 
     [Header("Movement Details")]
@@ -32,6 +33,12 @@ public class PlayerController : MonoBehaviour
     public float wallSlideSlowMultiplier;
     public Vector2 moveInput { get; private set; }
     public int facingDir { get; private set; } = 1;
+
+
+    [Header("Attack Details")]
+    public Vector2[] attackVelocity;
+    public float attackVelocityDuration;
+    public float comboResetTime;
 
 
     [Header("Collision Detection")]
@@ -57,6 +64,7 @@ public class PlayerController : MonoBehaviour
         wallSlideState = new PlayerWallSlideState(this, stateMachine, "wallSlide");
         wallJumpState = new PlayerWallJumpState(this, stateMachine, "jumpFall");
         dashState = new PlayerDashState(this, stateMachine, "dash");
+        basicAttackState = new PlayerBasicAttackState(this, stateMachine, "basicAttack");
     }
 
     private void OnEnable()
@@ -83,6 +91,11 @@ public class PlayerController : MonoBehaviour
         stateMachine.UpdateActiveState();
     }
 
+    public void CallAnimationTrigger()
+    {
+        stateMachine.currentState.CallAnimationTrigger();
+    }
+
     public void SetVelocity(float xVelocity, float yVelocity)
     {
         rb.velocity = new Vector2(xVelocity, yVelocity);
@@ -92,13 +105,9 @@ public class PlayerController : MonoBehaviour
     private void HandleFlip(float xVelocity)
     {
         if (xVelocity > 0 && facingDir == -1)
-        {
             Flip();
-        }
         else if (xVelocity < 0 && facingDir == 1)
-        {
             Flip();
-        }
     }
 
     public void Flip()

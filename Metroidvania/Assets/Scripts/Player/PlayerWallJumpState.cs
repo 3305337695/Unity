@@ -20,14 +20,10 @@ public class PlayerWallJumpState : State
         base.Update();
 
         if (rb.velocity.y < 0)
-        {
             stateMachine.ChangeState(player.fallState);
-        }
 
         if (player.wallDetected)
-        {
             stateMachine.ChangeState(player.wallSlideState);
-        }
     }
 
     public override void Exit()

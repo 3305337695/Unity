@@ -18,14 +18,10 @@ public class PlayerFallState : PlayerAiredState
         base.Update();
 
         if (player.groundDetected)
-        {
             stateMachine.ChangeState(player.idleState);
-        }
 
         if (player.wallDetected)
-        {
             stateMachine.ChangeState(player.wallSlideState);
-        }
     }
 
     public override void Exit()

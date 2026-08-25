@@ -18,9 +18,7 @@ public class PlayerAiredState : State
         base.Update();
 
         if (player.moveInput.x != 0)
-        {
             player.SetVelocity(player.moveInput.x * (player.moveSpeed * player.inAirMoveMultiplier), rb.velocity.y);
-        }
     }
 
     public override void Exit()

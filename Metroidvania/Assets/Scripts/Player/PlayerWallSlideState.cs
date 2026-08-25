@@ -20,14 +20,10 @@ public class PlayerWallSlideState : State
         HandleWallSlide();
 
         if (inputControl.Player.Jump.WasPressedThisFrame())
-        {
             stateMachine.ChangeState(player.wallJumpState);
-        }
 
         if (!player.wallDetected)
-        {
             stateMachine.ChangeState(player.fallState);
-        }
 
         if (player.groundDetected)
         {
@@ -44,12 +40,8 @@ public class PlayerWallSlideState : State
     private void HandleWallSlide()
     {
         if (player.moveInput.y < 0)
-        {
             player.SetVelocity(player.moveInput.x, rb.velocity.y);
-        }
         else
-        {
             player.SetVelocity(player.moveInput.x, rb.velocity.y * player.wallSlideSlowMultiplier);
-        }
     }
 }

@@ -13,6 +13,7 @@ public abstract class State
     protected PlayerInputControl inputControl;
 
     protected float stateTimer;
+    protected bool triggerCalled;
 
     public State(PlayerController player, StateMachine stateMachine, string animBoolName)
     {
@@ -28,6 +29,7 @@ public abstract class State
     public virtual void Enter()
     {
         anim.SetBool(animBoolName, true);
+        triggerCalled = false;
     }
 
     public virtual void Update()
@@ -37,14 +39,17 @@ public abstract class State
         anim.SetFloat("yVelocity", rb.velocity.y);
 
         if(inputControl.Player.Dash.WasPressedThisFrame() && CanDash())
-        {
             stateMachine.ChangeState(player.dashState);
-        }
     }
 
     public virtual void Exit()
     {
         anim.SetBool(animBoolName, false);
+    }
+
+    public void CallAnimationTrigger()
+    {
+        triggerCalled = true;
     }
 
     private bool CanDash()
