@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public PlayerWallJumpState wallJumpState { get; private set; }
     public PlayerDashState dashState { get; private set; }
     public PlayerBasicAttackState basicAttackState { get; private set; }
+    public  PlayerJumpAttackState jumpAttackState { get; private set; }
 
 
     [Header("Movement Details")]
@@ -37,8 +38,10 @@ public class PlayerController : MonoBehaviour
 
     [Header("Attack Details")]
     public Vector2[] attackVelocity;
+    public Vector2 jumpAttackVelocity;
     public float attackVelocityDuration;
     public float comboResetTime;
+    private Coroutine queuedAttackCo;
 
 
     [Header("Collision Detection")]
@@ -65,6 +68,7 @@ public class PlayerController : MonoBehaviour
         wallJumpState = new PlayerWallJumpState(this, stateMachine, "jumpFall");
         dashState = new PlayerDashState(this, stateMachine, "dash");
         basicAttackState = new PlayerBasicAttackState(this, stateMachine, "basicAttack");
+        jumpAttackState = new PlayerJumpAttackState(this, stateMachine, "jumpAttack");
     }
 
     private void OnEnable()
@@ -89,6 +93,20 @@ public class PlayerController : MonoBehaviour
     {
         HandleCollisionDetection();
         stateMachine.UpdateActiveState();
+    }
+
+    public void EnterAttackStateWithDelay()
+    {
+        if(queuedAttackCo != null)
+            StopCoroutine(queuedAttackCo);
+
+        queuedAttackCo = StartCoroutine(EnterAttackStateWithDelayCo());
+    }
+
+    private IEnumerator EnterAttackStateWithDelayCo()
+    {
+        yield return new WaitForEndOfFrame();
+        stateMachine.ChangeState(basicAttackState);
     }
 
     public void CallAnimationTrigger()

@@ -19,6 +19,9 @@ public class PlayerAiredState : State
 
         if (player.moveInput.x != 0)
             player.SetVelocity(player.moveInput.x * (player.moveSpeed * player.inAirMoveMultiplier), rb.velocity.y);
+
+        if (inputControl.Player.Attack.WasPressedThisFrame())
+            stateMachine.ChangeState(player.jumpAttackState);
     }
 
     public override void Exit()

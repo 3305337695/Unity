@@ -19,11 +19,14 @@ public class PlayerWallJumpState : State
     {
         base.Update();
 
-        if (rb.velocity.y < 0)
+        if (rb.velocity.y < 0 && stateMachine.currentState != player.jumpAttackState)
             stateMachine.ChangeState(player.fallState);
 
         if (player.wallDetected)
             stateMachine.ChangeState(player.wallSlideState);
+
+        if (inputControl.Player.Attack.WasPressedThisFrame())
+            stateMachine.ChangeState(player.jumpAttackState);
     }
 
     public override void Exit()
